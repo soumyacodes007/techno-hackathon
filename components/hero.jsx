@@ -46,9 +46,9 @@ const HeroSection = () => {
               Get Started
             </Button>
           </Link>
-          <Link href="https://www.youtube.com/roadsidecoder">
+          <Link href="https://github.com/soumyacodes007/ai-tutor">
             <Button size="lg" variant="outline" className="px-8">
-              Watch Demo
+              personal tutor 
             </Button>
           </Link>
         </div>
