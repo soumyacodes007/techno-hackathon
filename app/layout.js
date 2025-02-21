@@ -5,6 +5,7 @@ import { Toaster } from "sonner";
 import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { dark } from "@clerk/themes";
+import { Button } from "@/components/ui/button";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -37,7 +38,10 @@ export default function RootLayout({ children }) {
 
             <footer className="bg-muted/50 py-12">
               <div className="container mx-auto px-4 text-center text-gray-200">
-                <p>Made with 100x agents </p>
+                <div className="flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
+                  <Button size="sm">Feedback</Button>
+                  <Button size="sm" variant="outline">Community</Button>
+                </div>
               </div>
             </footer>
           </ThemeProvider>
