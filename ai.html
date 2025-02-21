@@ -177,9 +177,6 @@
             document.body.classList.toggle('dark-mode');
         });
     </script>
-</body>
-</html>
-
 
     <script>
         // Original JavaScript code remains exactly the same
@@ -249,18 +246,34 @@
 
         canvas.addEventListener('mousedown', (e) => {
             isDrawing = true;
-            [lastX, lastY] = [e.offsetX, e.offsetY];
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+            
+            lastX = (e.clientX - rect.left) * scaleX;
+            lastY = (e.clientY - rect.top) * scaleY;
         });
 
         canvas.addEventListener('mousemove', (e) => {
             if (!isDrawing) return;
+
+            const rect = canvas.getBoundingClientRect();
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+
+            const x = (e.clientX - rect.left) * scaleX;
+            const y = (e.clientY - rect.top) * scaleY;
+
             context.beginPath();
+            context.lineCap = 'round';  // Makes lines smoother
+            context.lineJoin = 'round'; // Makes line joins smoother
             context.moveTo(lastX, lastY);
-            context.lineTo(e.offsetX, e.offsetY);
+            context.lineTo(x, y);
             context.lineWidth = brushSize;
             context.strokeStyle = brushColor;
             context.stroke();
-            [lastX, lastY] = [e.offsetX, e.offsetY];
+
+            [lastX, lastY] = [x, y];
         });
 
         canvas.addEventListener('mouseup', () => isDrawing = false);

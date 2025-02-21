@@ -10,7 +10,7 @@ from google import genai
 import google.generativeai as generative
 
 # API Key Configuration (backchodi mt krna iske sath lwde)
-GEMINI_API_KEY = "AIzaSyB0Omt3iXk4QD_g4VjDHJEqFQt-xWg159Y"
+GEMINI_API_KEY = "AIzaSyB_sfKp4cs0mPnRPn6CgMwJQ_o4rfKyKuo"
 os.environ['GOOGLE_API_KEY'] = GEMINI_API_KEY
 generative.configure(api_key=GEMINI_API_KEY)
 
@@ -140,6 +140,3 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
-
-
-    
